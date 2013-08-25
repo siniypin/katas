@@ -1,6 +1,0 @@
-ProcessModel: Default    DomainUsage: Single
-Execution Runtime: Default
-.....
-Tests run: 5, Errors: 0, Failures: 0, Inconclusive: 0, Time: 0.097469 seconds
-  Not run: 0, Invalid: 0, Ignored: 0, Skipped: 0
-
