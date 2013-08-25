@@ -1,0 +1,48 @@
+Compare two IPv4 (i.e. 32-bit) CIDR ranges.
+
+IPv4 Addresses
+
+An IPv4 address is a 32-bit ID, made up of 4 bytes.
+
+Format:
+We will write the address in the standard "dotted decimal" format: Each byte (octet) is converted to its decimal value (which is always in the range 0 to 255) and those values are separated with dots.
+
+Examples:
+0xFFFFFFFF = 255.255.255.255
+0xFF00FF01 = 255.0.255.1
+0x10203040 = 16.32.48.64
+0x00000000 = 0.0.0.0
+CIDR Range
+
+An IPv4 CIDR range identifies an IPv4 network (i.e. collection of IPv4 addresses). A CIDR range consists of an IPv4 address and a suffix indicating how many bits of the address make up the network mask. The suffix can be from 0 to 32 bits.
+
+Format:
+A CIDR range is written as:
+[IPv4 Address]/[prefix bit count]
+
+Examples:
+192.168.0.1/22 
+128.148.128.40/32
+168.0.0.0/0
+10.61.128.218/27
+Only the Prefix of the IPv4 Address is Significant
+Given the CIDR range 255.255.255.255/24 we know that only the first 24 bits of the IPv4 address make up the network mask. The bits which are not included in the network mask are not important.
+
+A CIDR Range Has Multiple Representations
+Because the address bits which are not part of the prefix aren't relevant there are multiple ways to write the same CIDR range. For example, these representations are equivalent:
+255.255.255.255/24
+255.255.255.0/24
+255.255.255.100/24
+(i.e. the addresses are identical for the first 24 bits, although the last 8 bits differ)
+
+Comparing CIDR Ranges
+Lets say we have two CIDR ranges A and B. Now, lets say we have LA and LB as prefix lengths for A and B respectively. Finally, say N = MIN (LA, LB). 
+To determine if A is a subset of B, we have to determine if:
+a) The prefix length of A is greater than B
+b) The first N bits of the IPv4 addresses are the same.
+Similarly, we can easily derive if A is equal to B or, A is superset of B or, A is disjoint of B.
+Examples:
+"23.45.67.89/16" is EQUAL to "23.45.255.255/16" (the prefix lengths match and the prefixes match)
+"1.2.3.4/24" is SUBSET of "1.2.3.4/16" (the prefix lengths are different but prefixes match)
+"172.84.26.128/16" is SUPERSET of "172.84.26.255/24" (the prefix lengths are different but prefixes match)
+"197.54.16.128/25" is DISJOINT of "197.54.16.127/25" (the prefixes are different)

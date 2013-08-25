@@ -1,0 +1,302 @@
+1. тестирую, что концентрацию вещ-ва клетка получает при создании
+[TestFixture]
+    public class Given_a_cell
+    {
+        [Test]
+        public void when_created_should_receive_signal_agent_concentration()
+        {
+            //arrange
+            var anonymousConcentration = 3;
+            var sut = new Protozoon.Cell(3);
+
+            //act
+            var result = sut.AgentConcentration;
+
+            //assert
+            Assert.AreEqual(anonymousConcentration, result);
+        }
+    }
+	
+namespace Katas.Protozoon
+{
+    public class Cell
+    {
+        public Cell(double concentration)
+        {
+        }
+
+        public double AgentConcentration
+        {
+            get { return 3; }
+        }
+    }
+}
+
+избавляюсь от дублирования 
+[TestFixture]
+    public class Given_a_cell : Fixture
+    {
+        [Test]
+        public void when_created_should_receive_signal_agent_concentration()
+        {
+            //arrange
+            this.Inject(this.CreateAnonymous<double>());
+            var anonymousConcentration = this.CreateAnonymous<double>();
+            var sut = this.CreateAnonymous<Protozoon.Cell>();
+
+            //act
+            var result = sut.AgentConcentration;
+
+            //assert
+            Assert.AreEqual(anonymousConcentration, result);
+        }
+    }
+	тест фейлится - вносим изменения в sut
+	namespace Katas.Protozoon
+{
+    public class Cell
+    {
+        private readonly double _agentConcentration;
+
+        public Cell(double agentConcentration)
+        {
+            _agentConcentration = agentConcentration;
+        }
+
+        public double AgentConcentration
+        {
+            get { return _agentConcentration; }
+        }
+    }
+}
+
+2. starter test - cell is diploid
+        [Test]
+        public void should_be_diploid_initially()
+        {
+            //arrange 
+            var sut = this.CreateAnonymous<Cell>();
+
+            //act
+            var expected = true;
+            var result = sut.IsDiploid;
+
+            //assert
+            Assert.AreEqual(expected, result);
+        }
+минимальный код, который удовлетворит тесту	
+public bool IsDiploid { get { return true; } }	
+
+3. клетка отращивает глазок при концентрациях вещества != 1
+[Test]
+        public void when_created_should_develop_an_eye_if_signal_agent_concentration_not_equal_to_1()
+        {
+            //arrange
+            this.Inject(5.4);
+            var sut = this.CreateAnonymous<Cell>();
+
+            //act
+            var expected = this.CreateAnonymous<double>() > 1.0;
+            var result = sut.HasEye;
+
+            //assert
+            Assert.AreEqual(expected, result);
+        }
+
+public bool HasEye { get { return true; } }
+Тест проходит, избавляемся от дублирования
+
+            this.Inject(0.3);
+        public bool HasEye { get { return _agentConcentration > 1.0; } }
+
+4. деление митозом при концентрации вещества >= 4
+        [Test]
+        public void when_signal_agent_concentration_greater_or_equal_4_should_be_able_to_divide_mitose()
+        {
+            //arrange
+            this.Inject(4.1);
+            var sut = this.CreateAnonymous<Cell>();
+
+            //act
+            var expected = this.CreateAnonymous<double>() >= 4.0;
+            var actual = sut.CanDivideMitose;
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+		        public bool CanDivideMitose { get { return true; } }
+снова избавляемся от дублирования
+            this.Inject(3.1);
+        public bool CanDivideMitose { get { return _agentConcentration >= 4.0; } }
+
+5. При митозе обе клетки диплоидны
+[Test]
+        public void when_divided_mitose_should_produce_another_diploid_cell()
+        {
+            //arrange
+            this.Inject(4.1);
+            var sut = this.CreateAnonymous<Cell>();
+
+            //act
+            var expected = this.CreateAnonymous<double>() >= 4.0;
+            var descendants = sut.Divide();
+
+            //assert
+            Assert.AreEqual(2, descendants.Count());
+            Assert.AreEqual(expected, descendants.First().IsDiploid);
+        }
+		опять - минимальный код, чтобы пройти тест
+		public IEnumerable<Cell> Divide()
+        {
+            return new []{this}
+        }
+		
+избавляемся от дублирования
+            this.Inject(3.1);
+public IEnumerable<Cell> Divide()
+        {
+            return new[] {new Cell(_agentConcentration), this};
+        }
+		Понимаем, что нужно дописать еще 2 правила:
+		- при делении митозом концентрация вещества делится между клетками пополам
+		- клетки идентичны, если содержат идентичный набор хромосом, но не обязательно одно и тоже.
+		
+6. оригинальная концентрация при делении делится пропорционально числу образовавшихся клеток
+[Test]
+        public void when_divided_mitose_each_cell_should_get_a_half_concentration_of_signal_agent()
+        {
+            //arrange
+            this.Inject(4.6);
+            var sut = this.CreateAnonymous<Cell>();
+
+            //act
+            var expected = this.CreateAnonymous<double>()/2;
+            var divided = sut.Divide();
+
+            //assert
+            Assert.AreEqual(expected, sut.AgentConcentration);
+            Assert.AreEqual(expected, divided.First().AgentConcentration);
+        }
+		public IEnumerable<Cell> Divide()
+        {
+            _agentConcentration /= 2;
+            return new[] {new Cell(_agentConcentration), this};
+        }
+		
+7. перефразируем по-другому. при делении митозом одна из двух образовавшихся клеток - это исходная клетка.
+[Test]
+        public void when_divided_mitose_one_of_the_descendants_is_the_same_cell()
+        {
+            //arrange
+            this.Inject(4.6);
+            var sut = this.CreateAnonymous<Cell>();
+
+            //act
+            var divided = sut.Divide();
+
+            //assert
+            Assert.AreSame(sut, divided.Last());
+        }
+		
+8. При делении митозом глазок получает только одна клетка.
+[Test]
+        public void when_divided_mitose_should_pass_an_eye_to_one_cell_only()
+        {
+            //arrange
+            this.Inject(4.6);
+            var sut = this.CreateAnonymous<Cell>();
+
+            //act
+            var expected = sut.HasEye ? 1 : 0;
+            var actual = sut.Divide().Count(x => x.HasEye);
+
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+тут мы понимаем, что наличие глазка и возможность его развития - разные концепции и рефакторим Cell 
+public class Cell
+    {
+        private double _agentConcentration;
+        private bool _hasEye;
+
+        public Cell(double agentConcentration, bool hasEye)
+        {
+            _agentConcentration = agentConcentration;
+            _hasEye = hasEye;
+        }
+		
+        public bool HasEye { get { return _hasEye; } }
+        public bool CanDevelopAnEye { get { return _agentConcentration != 1.0; } }
+		
+9. при делении мейозом образуются 4 гаплоидные клетки
+[Test]
+        public void when_divided_miosis_should_produce_four_gaploid_cells()
+        {
+            //arrange
+            this.Inject(2.2);
+            var sut = this.CreateAnonymous<Cell>();
+
+            //act
+            var expected = sut.AgentConcentration < 4.0 ? false : true;
+            var divided = sut.Divide().ToArray();
+            var actual = divided.All(x => !x.CanDivideMitose);
+
+            //assert
+            Assert.AreEqual(4, divided.Count());
+            Assert.AreEqual(expected, actual);
+        }
+		public IEnumerable<Cell> Divide()
+        {
+            if (CanDivideMitose)
+            {
+                _agentConcentration /= 2;
+                return new[] {new Cell(_agentConcentration, false), this};
+            }
+            else
+            {
+                return new[]
+                {
+                    new Cell(AgentConcentration/4, false), new Cell(AgentConcentration/4, false),
+                    new Cell(AgentConcentration/4, false), new Cell(AgentConcentration/4, false),
+                };
+            }
+        }
+		код стал не очень красивым, отрефакторим его, по заветам Мартина Фаулера
+		public IEnumerable<Cell> Divide()
+        {
+            var divisionStartegy = GetDivisionStartegy();
+            return divisionStartegy.Divide(this);
+        }
+
+        private DivisionStrategy GetDivisionStartegy()
+        {
+            return CanDivideMitose ? (DivisionStrategy) new Mitose() : new Miosis();
+        }
+		запустив тесты, обнаруживаем, что ошиблись в коде митоза, фиксим
+		public class Mitose : DivisionStrategy
+		{
+			public override IEnumerable<Cell> Divide(Cell origin)
+			{
+				origin.AgentConcentration /= 2;
+				return new [] {new Cell(origin.AgentConcentration, false), origin};
+			}
+		}
+		
+10. при делении мейозом, клетки получают четверть оригинальной концентрации
+[Test]
+        public void when_divided_miosis_each_cell_should_get_a_quarter_concentration()
+        {
+            //arrange
+            this.Inject(2.2);
+            var sut = this.CreateAnonymous<Cell>();
+
+            //act
+            var expected = sut.AgentConcentration / 4.0;
+            var divided = sut.Divide().ToArray();
+
+            //assert
+            foreach (var cell in divided)
+                Assert.AreEqual(expected, cell.AgentConcentration);
+        }
+		
+11. 
