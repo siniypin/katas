@@ -14,14 +14,14 @@ For example: [6, 9, 15, -2, 92, 11]
     o) average value = 21.833333
 
 
-1. когда последовательность из 0 должна вернуть [] +
-2. когда последовательность из 1 все моменты равны +
-3. когда в последовательности много членов считает их число правильно +
-3. когда в последовательности одинаковые члены все моменты равны +
-4. когда в последовательности разные члены должен правильно искать 
+1. when empty sequence should return empty stats +
+2. when sequence of one item all stat items should be equal +
+3. when sequence of many items should count correctly +
+3. when sequence of many equal items all stat items should be equal +
+4. when sequence of many distinct items should calculate correctly
 	max +
 	min +
 	avg +
 
-smell - создание массива в тестах повторяется fixed
-создание пустой статистики повторяется fixed
+smell - array creation is repeated +
+smell - creating empty stats in tests repeated +
