@@ -1,3 +1,5 @@
+Cyber-dojo http://www.cyber-dojo.com/dashboard/show/F8514FC18A
+
 Your task is to process a sequence of integer numbers
 to determine the following statistics:
 

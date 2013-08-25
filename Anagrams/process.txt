@@ -1,3 +1,5 @@
+cyber-dojo http://www.cyber-dojo.com/dashboard/show/5386BB?authenticity_token=1LEIbzsEs4rM3obn%2FmzfXIbvgJfo2l%2FTxKXAQfYh8f8%3D
+
 Write a program to generate all potential 
 anagrams of an input string.
 

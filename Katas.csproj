@@ -59,9 +59,12 @@
     <Compile Include="Protozoon\Given_a_cell.cs" />
     <Compile Include="Statistics\Stat.cs" />
     <Compile Include="Statistics\StatTest.cs" />
+    <Compile Include="Unsplice\Unsplice.cs" />
+    <Compile Include="Unsplice\UnspliceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Statistics\TestResult.xml" />
+    <Content Include="Unsplice\process.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
