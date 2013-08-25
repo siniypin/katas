@@ -1,4 +1,4 @@
-﻿namespace CidrRangeKata
+﻿namespace Katas.CidrRange
 {
     public enum RangeIntersectionResult
     {

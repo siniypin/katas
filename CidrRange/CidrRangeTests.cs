@@ -1,8 +1,7 @@
 ﻿using System.Linq;
-using CidrRangeKata;
 using NUnit.Framework;
 
-namespace Tests
+namespace Katas.CidrRange
 {
     [TestFixture]
     public class CidrRangeTests

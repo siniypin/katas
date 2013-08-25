@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Linq;
 
-namespace CidrRangeKata
+namespace Katas.CidrRange
 {
     public class CidrRange
     {
