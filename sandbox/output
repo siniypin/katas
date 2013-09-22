@@ -1,9 +1,4 @@
-.................*.
+..................
 
-Pending:
-  untitled when rounded thousands working out a clear alg
-    # No reason given
-    # ./untitled_spec.rb:110
-
-Finished in 0.00312 seconds
-19 examples, 0 failures, 1 pending
+Finished in 0.00299 seconds
+18 examples, 0 failures
