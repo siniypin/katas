@@ -1,16 +1,4 @@
-..............F
+...............
 
-Failures:
-
-  1) untitled when rounded hundreds should spell one hundred for 100
-     Failure/Error: Humanize::spell(100).should == "one hundred"
-       expected: "one hundred"
-            got: "tenty" (using ==)
-     # ./untitled_spec.rb:91:in `block (3 levels) in <top (required)>'
-
-Finished in 0.00255 seconds
-15 examples, 1 failure
-
-Failed examples:
-
-rspec ./untitled_spec.rb:90 # untitled when rounded hundreds should spell one hundred for 100
+Finished in 0.0224 seconds
+15 examples, 0 failures
