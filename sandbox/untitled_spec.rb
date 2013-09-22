@@ -106,9 +106,13 @@ describe "untitled" do
     end
   end
 
-  context "when rounded thousands" do
+  context "when numbers above thousand" do
     it "should spell one thousand for 1000" do
       Humanize::spell(1000).should == "one thousand"
+    end
+
+    it "should spell one thousand, five hundred and one for 1501" do
+      Humanize::spell(1501).should == "one thousand, five hundred and one"
     end
   end
 end
