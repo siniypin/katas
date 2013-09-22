@@ -40,7 +40,7 @@ describe "untitled" do
 
   context "from 16 through to 19" do
     it "should add teen to number" do
-      16..19.each do |n|
+      (16..19).each do |n|
         Humanize::spell(n).should == Humanize::spell(n - 10) + "teen"
       end
     end
