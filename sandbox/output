@@ -1,5 +1,9 @@
-/var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/untitled_spec.rb:1:in `require': /var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/untitled.rb:44: syntax error, unexpected $end, expecting keyword_end (SyntaxError)
-	from /var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/untitled_spec.rb:1:in `<top (required)>'
+/var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/untitled_spec.rb:109:in `block in <top (required)>': undefined method `ignore' for #<Class:0x88075e8> (NoMethodError)
+	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/example_group.rb:242:in `module_eval'
+	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/example_group.rb:242:in `subclass'
+	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/example_group.rb:228:in `describe'
+	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/dsl.rb:18:in `describe'
+	from /var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/untitled_spec.rb:3:in `<top (required)>'
 	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `load'
 	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `block in load_spec_files'
 	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `each'
