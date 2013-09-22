@@ -1,23 +1,4 @@
-..F.....F
+.........
 
-Failures:
-
-  1) untitled when numbers are under 10 spells nine for 9
-     Failure/Error: Unable to find matching line from backtrace
-     SystemStackError:
-       stack level too deep
-     # ./untitled.rb:8
-
-  2) untitled from 16 through to 19 should add teen to number
-     Failure/Error: Unable to find matching line from backtrace
-     SystemStackError:
-       stack level too deep
-     # ./untitled.rb:8
-
-Finished in 0.00381 seconds
-9 examples, 2 failures
-
-Failed examples:
-
-rspec ./untitled_spec.rb:14 # untitled when numbers are under 10 spells nine for 9
-rspec ./untitled_spec.rb:42 # untitled from 16 through to 19 should add teen to number
+Finished in 0.00143 seconds
+9 examples, 0 failures
