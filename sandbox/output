@@ -1,4 +1,16 @@
-.............
+...F..........
 
-Finished in 0.00213 seconds
-13 examples, 0 failures
+Failures:
+
+  1) untitled when numbers are under sixteen spells ten for 10
+     Failure/Error: Humanize::spell(10).should == "ten"
+       expected: "ten"
+            got: "onety" (using ==)
+     # ./untitled_spec.rb:21:in `block (3 levels) in <top (required)>'
+
+Finished in 0.02035 seconds
+14 examples, 1 failure
+
+Failed examples:
+
+rspec ./untitled_spec.rb:20 # untitled when numbers are under sixteen spells ten for 10
