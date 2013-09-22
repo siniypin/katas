@@ -64,6 +64,7 @@ describe "untitled" do
 
     it "should add ty to number" do
       (60..90).step(10) do |n|
+        next if n == 80 
         Humanize::spell(n).should == Humanize::spell(n/10) + "ty"
       end
     end

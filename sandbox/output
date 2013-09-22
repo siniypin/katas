@@ -1,18 +1,4 @@
-..........F.
+............
 
-Failures:
-
-  1) untitled round numbers less then 100 should add ty to number
-     Failure/Error: Humanize::spell(n).should == Humanize::spell(n/10) + "ty"
-       expected: "eightty"
-            got: "eighty" (using ==)
-     # ./untitled_spec.rb:67:in `block (4 levels) in <top (required)>'
-     # ./untitled_spec.rb:66:in `step'
-     # ./untitled_spec.rb:66:in `block (3 levels) in <top (required)>'
-
-Finished in 0.00197 seconds
-12 examples, 1 failure
-
-Failed examples:
-
-rspec ./untitled_spec.rb:65 # untitled round numbers less then 100 should add ty to number
+Finished in 0.00198 seconds
+12 examples, 0 failures
