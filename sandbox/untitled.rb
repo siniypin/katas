@@ -27,7 +27,8 @@ module Humanize
   end
 
   def self.spell_hundred number
-    spell(number / 100) + " hundred"
+    hundreds = number / 100 > 1 ? "hundreds" : "hundred"
+    spell(number / 100) + " " + hundreds
   end
 
   def self.round_down number
