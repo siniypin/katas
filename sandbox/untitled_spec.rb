@@ -1,45 +1,25 @@
 require './untitled'
 
 describe "untitled" do
-  
-  context "when numbers are under 10" do
-    it "spells zero for 0" do
-      Humanize::spell(0).should == "zero"
-    end
-
-    it "spells one for 1" do
-      Humanize::spell(1).should == "one"
-    end
-
-    it "spells nine for 9" do
-      Humanize::spell(9).should == "nine"
+  shared_examples_for "number humanizer" do |number, words|
+    it "should spell #{words} for #{number}" do
+      Humanize::spell(number).should == words
     end
   end
 
+  context "when numbers are under 10" do
+    it_behaves_like "number humanizer", 0, "zero"
+    it_behaves_like "number humanizer", 1, "one"
+    it_behaves_like "number humanizer", 9, "nine"
+  end
+
   context "when numbers are under sixteen" do
-    it "spells ten for 10" do
-      Humanize::spell(10).should == "ten"
-    end
-
-    it "spells eleven for 11" do
-      Humanize::spell(11).should == "eleven"
-    end
-
-    it "spells twelve for 12" do
-      Humanize::spell(12).should == "twelve"
-    end
-
-    it "spells thirteen for 13" do
-      Humanize::spell(13).should == "thirteen"
-    end
-
-    it "spells fourteen for 14" do
-      Humanize::spell(14).should == "fourteen"
-    end
-
-    it "spells fifteen for 15" do
-      Humanize::spell(15).should == "fifteen"
-    end
+    it_behaves_like "number humanizer", 10, "ten"
+    it_behaves_like "number humanizer", 11, "eleven"
+    it_behaves_like "number humanizer", 12, "twelve"
+    it_behaves_like "number humanizer", 13, "thirteen"
+    it_behaves_like "number humanizer", 14, "fourteen"
+    it_behaves_like "number humanizer", 15, "fifteen"
   end
 
   context "when numbers from 16 through to 19" do
@@ -51,30 +31,17 @@ describe "untitled" do
   end  
 
   context "when round numbers under 100" do
-    it "should spell round numbers under 60 correctly" do
-      (20..50).step(10) do |n|
-        case n
-          when 20
-            Humanize::spell(n).should == "twenty"
-          when 30
-            Humanize::spell(n).should == "thirty"
-          when 40
-            Humanize::spell(n).should == "forty"
-          when 50
-            Humanize::spell(n).should == "fifty"
-        end
-      end
-    end
+    it_behaves_like "number humanizer", 20, "twenty"
+    it_behaves_like "number humanizer", 30, "thirty"
+    it_behaves_like "number humanizer", 40, "forty"
+    it_behaves_like "number humanizer", 50, "fifty"
+    it_behaves_like "number humanizer", 80, "eighty"
 
     it "should add ty to number" do
       (60..90).step(10) do |n|
         next if n == 80 
         Humanize::spell(n).should == Humanize::spell(n/10) + "ty"
       end
-    end
-
-    it "should deal with eighty correctly" do
-      Humanize::spell(80).should == "eighty"
     end
   end
 
@@ -87,15 +54,9 @@ describe "untitled" do
   end
 
   context "when rounded hundreds" do
-    it "should spell one hundred for 100" do
-      Humanize::spell(100).should == "one hundred"
-    end
-
-    it "should not pluralize hundreds for numbers higher then 100" do
-      (200..900).step(100) do |n|
-        Humanize::spell(n).should == Humanize::spell(n / 100) + " hundred"
-      end
-    end
+    it_behaves_like "number humanizer", 100, "one hundred"
+    it_behaves_like "number humanizer", 200, "two hundred"
+    it_behaves_like "number humanizer", 900, "nine hundred"
   end
 
   context "when unrounded numbers under thousand" do
@@ -107,20 +68,9 @@ describe "untitled" do
   end
 
   context "when numbers above thousand" do
-    it "should spell one thousand for 1000" do
-      Humanize::spell(1000).should == "one thousand"
-    end
-
-    it "should spell one thousand, five hundred and one for 1501" do
-      Humanize::spell(1501).should == "one thousand, five hundred and one"
-    end
-
-    it "should spell twelve thousand, six hundred and nine for 12609" do
-      Humanize::spell(12609).should == "twelve thousand, six hundred and nine"
-    end
-
-    it "should spell five hundred and twelve thousand, six hundred and seven for 512607" do
-      Humanize::spell(512607).should == "five hundred and twelve thousand, six hundred and seven"
-    end
+    it_behaves_like "number humanizer", 1000, "one thousand"
+    it_behaves_like "number humanizer", 1501, "one thousand, five hundred and one"
+    it_behaves_like "number humanizer", 12609, "twelve thousand, six hundred and nine"
+    it_behaves_like "number humanizer", 512607, "five hundred and twelve thousand, six hundred and seven"
   end
 end
