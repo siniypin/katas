@@ -9,10 +9,8 @@ module Humanize
 
     if (number > 50)
       spell(number / 10) + "ty"
-
-    if (number > 15)
+    else
       spell(number - 10) + "teen"
     end
   end
-
 end
