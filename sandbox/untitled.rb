@@ -7,7 +7,9 @@ module Humanize
   def self.spell number
     return @@grammar[number] unless @@grammar[number].nil?
 
-    if (number >= 1000)
+    if (number >= 1000000)
+      spell_million number
+    elsif (number >= 1000)
       spell_thousand number
     elsif (number >= 100)
       spell_hundred number
@@ -37,6 +39,12 @@ module Humanize
   def self.spell_thousand number
     result = spell(number / 1000) + " thousand"
     result += ", " + spell(number % 1000) unless factor_of? 1000, number
+    result
+  end
+
+  def self.spell_million number
+    result = spell(number / 1000) + " million"
+    result += ", " + spell(number % 1000000) unless factor_of? 1000000, number
     result
   end
 
