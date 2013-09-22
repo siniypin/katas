@@ -1,4 +1,16 @@
-.
+.F
 
-Finished in 0.00042 seconds
-1 example, 0 failures
+Failures:
+
+  1) untitled when numbers are under 10 spells one for 1
+     Failure/Error: answer.should == "one"
+       expected: "one"
+            got: "zero" (using ==)
+     # ./untitled_spec.rb:11:in `block (3 levels) in <top (required)>'
+
+Finished in 0.00062 seconds
+2 examples, 1 failure
+
+Failed examples:
+
+rspec ./untitled_spec.rb:10 # untitled when numbers are under 10 spells one for 1

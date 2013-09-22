@@ -6,6 +6,10 @@ describe "untitled" do
     it "spells zero for 0" do
       answer.should == "zero"
     end
+
+    it "spells one for 1" do
+      answer.should == "one"
+    end
   end  
 
 end
