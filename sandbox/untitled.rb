@@ -7,7 +7,7 @@ module Humanize
   def self.spell number
     return @@grammar[number] unless @@grammar[number].nil?
 
-    if (number % 10 == 0)
+    if (factor_of? 10, number)
       spell_dozen number
     elsif (number > 20)
       spell(round_down number) + " " + spell(number % 10)
@@ -26,5 +26,9 @@ module Humanize
 
   def self.round_down number
     number - (number % 10)
+  end
+
+  def self.factor_of? factor, number
+    number % factor == 0
   end
 end
