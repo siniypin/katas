@@ -1,17 +1,21 @@
-/var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/untitled_spec.rb:110:in `block (2 levels) in <top (required)>': undefined method `ignore' for #<Class:0x8a012b8> (NoMethodError)
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/example_group.rb:242:in `module_eval'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/example_group.rb:242:in `subclass'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/example_group.rb:228:in `describe'
-	from /var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/untitled_spec.rb:109:in `block in <top (required)>'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/example_group.rb:242:in `module_eval'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/example_group.rb:242:in `subclass'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/example_group.rb:228:in `describe'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/dsl.rb:18:in `describe'
-	from /var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/untitled_spec.rb:3:in `<top (required)>'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `load'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `block in load_spec_files'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `each'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `load_spec_files'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/command_line.rb:22:in `run'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/runner.rb:80:in `run'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/runner.rb:17:in `block in autorun'
+.................*F
+
+Pending:
+  untitled when rounded thousands working out a clear alg
+    # No reason given
+    # ./untitled_spec.rb:110
+
+Failures:
+
+  1) untitled when rounded thousands should spell one thousand for 1000
+     Failure/Error: Humanize::spell(1000).should == "one thousand"
+       expected: "one thousand"
+            got: "ten hundred" (using ==)
+     # ./untitled_spec.rb:113:in `block (3 levels) in <top (required)>'
+
+Finished in 0.00316 seconds
+19 examples, 1 failure, 1 pending
+
+Failed examples:
+
+rspec ./untitled_spec.rb:112 # untitled when rounded thousands should spell one thousand for 1000
