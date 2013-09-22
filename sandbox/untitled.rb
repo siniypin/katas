@@ -1,4 +1,4 @@
 
-def answer
-  "zero"
+def answer number
+  number ? "zero" : "one"
 end
