@@ -1,4 +1,16 @@
-...........
+...........F
 
-Finished in 0.00177 seconds
-11 examples, 0 failures
+Failures:
+
+  1) untitled round numbers less then 100 should deal with eighty correctly
+     Failure/Error: Humanize::spell(80).should == "eighty"
+       expected: "eighty"
+            got: "eightty" (using ==)
+     # ./untitled_spec.rb:72:in `block (3 levels) in <top (required)>'
+
+Finished in 0.00195 seconds
+12 examples, 1 failure
+
+Failed examples:
+
+rspec ./untitled_spec.rb:71 # untitled round numbers less then 100 should deal with eighty correctly

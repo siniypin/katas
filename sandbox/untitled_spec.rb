@@ -67,5 +67,9 @@ describe "untitled" do
         Humanize::spell(n).should == Humanize::spell(n/10) + "ty"
       end
     end
+
+    it "should deal with eighty correctly" do
+      Humanize::spell(80).should == "eighty"
+    end
   end
 end
