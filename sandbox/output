@@ -1,18 +1,4 @@
-.........F.
+...........
 
-Failures:
-
-  1) untitled round numbers less then 100 should spell round numbers under 60 correctly
-     Failure/Error: Humanize::spell(n).should == "forty"
-       expected: "forty"
-            got: "thirtyteen" (using ==)
-     # ./untitled_spec.rb:58:in `block (4 levels) in <top (required)>'
-     # ./untitled_spec.rb:51:in `step'
-     # ./untitled_spec.rb:51:in `block (3 levels) in <top (required)>'
-
-Finished in 0.00182 seconds
-11 examples, 1 failure
-
-Failed examples:
-
-rspec ./untitled_spec.rb:50 # untitled round numbers less then 100 should spell round numbers under 60 correctly
+Finished in 0.00173 seconds
+11 examples, 0 failures
