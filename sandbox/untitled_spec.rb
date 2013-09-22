@@ -90,5 +90,11 @@ describe "untitled" do
     it "should spell one hundred for 100" do
       Humanize::spell(100).should == "one hundred"
     end
+
+    it "should pluralize hundreds for numbers higher then 100" do
+      (200..900).step(100) do |n|
+        Humanize::spell(n).should == Humanize::spell(n / 100) + " hundreds"
+      end
+    end
   end
 end
