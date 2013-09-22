@@ -1,18 +1,4 @@
-................F
+.................
 
-Failures:
-
-  1) untitled when unrounded numbers under thousand should spell hundreds followed by spelled dozens followed by spelled digits
-     Failure/Error: Humanize::spell(n).should == Humanize::spell(n/100*100) + " and " + Humanize::spell(n%100)
-       expected: "one hundred and eleven"
-            got: "eleventy one" (using ==)
-     # ./untitled_spec.rb:104:in `block (4 levels) in <top (required)>'
-     # ./untitled_spec.rb:103:in `step'
-     # ./untitled_spec.rb:103:in `block (3 levels) in <top (required)>'
-
-Finished in 0.02506 seconds
-17 examples, 1 failure
-
-Failed examples:
-
-rspec ./untitled_spec.rb:102 # untitled when unrounded numbers under thousand should spell hundreds followed by spelled dozens followed by spelled digits
+Finished in 0.00283 seconds
+17 examples, 0 failures

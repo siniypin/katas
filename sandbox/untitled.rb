@@ -9,10 +9,12 @@ module Humanize
 
     if (factor_of? 100, number)
       spell_hundred number
+    elsif (number > 100)
+      spell(round_down_to 100, number) + " and " + spell(number % 100)
     elsif (factor_of? 10, number)
       spell_dozen number
     elsif (number > 20)
-      spell(round_down number) + " " + spell(number % 10)
+      spell(round_down_to 10, number) + " " + spell(number % 10)
     else
       spell_teen number
     end
@@ -30,8 +32,8 @@ module Humanize
     spell(number / 100) + " " + "hundred"
   end
 
-  def self.round_down number
-    number - (number % 10)
+  def self.round_down_to factor, number
+    number - (number % factor)
   end
 
   def self.factor_of? factor, number

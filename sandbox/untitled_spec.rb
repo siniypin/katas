@@ -100,7 +100,7 @@ describe "untitled" do
 
   context "when unrounded numbers under thousand" do
     it "should spell hundreds followed by spelled dozens followed by spelled digits" do
-      (111..999).step(111) do |n|
+      (101..999).step(111) do |n|
         Humanize::spell(n).should == Humanize::spell(n/100*100) + " and " + Humanize::spell(n%100)
       end
     end
