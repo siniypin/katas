@@ -1,4 +1,4 @@
-require './untitled'
+require './humanizer'
 
 describe "untitled" do
   shared_examples_for "number humanizer" do |number, words|

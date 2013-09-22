@@ -1,9 +1,4 @@
-/var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/humanizer_spec.rb:1:in `require': cannot load such file -- ./untitled (LoadError)
-	from /var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/humanizer_spec.rb:1:in `<top (required)>'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `load'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `block in load_spec_files'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `each'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `load_spec_files'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/command_line.rb:22:in `run'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/runner.rb:80:in `run'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/runner.rb:17:in `block in autorun'
+...........................
+
+Finished in 0.0155 seconds
+27 examples, 0 failures
