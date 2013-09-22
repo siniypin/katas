@@ -21,7 +21,7 @@ Failures:
             got: "ten hundred" (using ==)
      # ./untitled_spec.rb:113:in `block (3 levels) in <top (required)>'
 
-Finished in 0.0032 seconds
+Finished in 0.00316 seconds
 19 examples, 2 failures, 1 pending
 
 Failed examples:
