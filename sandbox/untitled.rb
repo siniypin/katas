@@ -4,7 +4,11 @@ module Humanize
                11 => "eleven", 12 => "twelve", 13 => "thirteen", 14 => "fourteen", 15 => "fifteen"}
 
   def self.spell number
-    @@grammar[number]
+    if (number % 10 > 5)
+      spell(number - 10) + "teen"
+    else
+      @@grammar[number]
+    end
   end
 
 end
