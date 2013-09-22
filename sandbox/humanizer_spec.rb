@@ -3,7 +3,7 @@ require './untitled'
 describe "untitled" do
   shared_examples_for "number humanizer" do |number, words|
     it "should spell #{words} for #{number}" do
-      Humanize::spell(number).should == words
+      Humanizer::spell(number).should == words
     end
   end
 
@@ -25,7 +25,7 @@ describe "untitled" do
   context "when numbers from 16 through to 19" do
     it "should add teen to number" do
       (16..19).each do |n|
-        Humanize::spell(n).should == Humanize::spell(n - 10) + "teen"
+        Humanizer::spell(n).should == Humanizer::spell(n - 10) + "teen"
       end
     end
   end  
@@ -40,7 +40,7 @@ describe "untitled" do
     it "should add ty to number" do
       (60..90).step(10) do |n|
         next if n == 80 
-        Humanize::spell(n).should == Humanize::spell(n/10) + "ty"
+        Humanizer::spell(n).should == Humanizer::spell(n/10) + "ty"
       end
     end
   end
@@ -48,7 +48,7 @@ describe "untitled" do
   context "when unrounded numbers under 100" do
     it "should spell dozens followed by spelled digits" do
       (21..99).step(11) do |n|
-        Humanize::spell(n).should == Humanize::spell(n/10*10) + " " + Humanize::spell(n%10)
+        Humanizer::spell(n).should == Humanizer::spell(n/10*10) + " " + Humanizer::spell(n%10)
       end
     end
   end
@@ -62,7 +62,7 @@ describe "untitled" do
   context "when unrounded numbers under thousand" do
     it "should spell hundreds followed by spelled dozens followed by spelled digits" do
       (101..999).step(111) do |n|
-        Humanize::spell(n).should == Humanize::spell(n/100*100) + " and " + Humanize::spell(n%100)
+        Humanizer::spell(n).should == Humanizer::spell(n/100*100) + " and " + Humanizer::spell(n%100)
       end
     end
   end
