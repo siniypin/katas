@@ -46,4 +46,24 @@ describe "untitled" do
     end
   end  
 
+  context "round numbers less then 100" do
+    it "should spell round numbers under 60 correctly" do
+      (20..50).step(10) do |n|
+        case n
+          when 20
+            Humanize::spell(n).should == "twenty"
+          when 30
+            Humanize::spell(n).should == "thirty"
+          when 40
+            Humanize::spell(n).should == "forty"
+          when 50
+            Humanize::spell(n).should == "fifty"
+        end
+      end
+    end
+
+    it "should spell thirty for 30" do
+      Humanize::spell(30).should == "thirty"
+    end
+  end
 end

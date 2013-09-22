@@ -1,4 +1,28 @@
-.........
+.........FF
 
-Finished in 0.00143 seconds
-9 examples, 0 failures
+Failures:
+
+  1) untitled round numbers less then 100 should spell round numbers under 60 correctly
+     Failure/Error: Humanize::spell(n).should == "twenty"
+     NoMethodError:
+       undefined method `+' for nil:NilClass
+     # ./untitled.rb:8:in `spell'
+     # ./untitled_spec.rb:54:in `block (4 levels) in <top (required)>'
+     # ./untitled_spec.rb:51:in `step'
+     # ./untitled_spec.rb:51:in `block (3 levels) in <top (required)>'
+
+  2) untitled round numbers less then 100 should spell thirty for 30
+     Failure/Error: Humanize::spell(30).should == "thirty"
+     NoMethodError:
+       undefined method `+' for nil:NilClass
+     # ./untitled.rb:8:in `spell'
+     # ./untitled.rb:8:in `spell'
+     # ./untitled_spec.rb:66:in `block (3 levels) in <top (required)>'
+
+Finished in 0.00178 seconds
+11 examples, 2 failures
+
+Failed examples:
+
+rspec ./untitled_spec.rb:50 # untitled round numbers less then 100 should spell round numbers under 60 correctly
+rspec ./untitled_spec.rb:65 # untitled round numbers less then 100 should spell thirty for 30
