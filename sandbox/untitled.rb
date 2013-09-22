@@ -10,13 +10,21 @@ module Humanize
     if (number % 10 == 0)
       spell_dozen number
     elsif (number > 20)
-      spell_dozen(number / 10 * 10) + " " + spell(number % 10)
+      spell(round_down number) + " " + spell(number % 10)
     else
-      spell(number - 10) + "teen"
+      spell_teen number
     end
+  end
+
+  def self.spell_teen number
+    spell(number - 10) + "teen"
   end
 
   def self.spell_dozen number
     spell(number / 10) + "ty"
+  end
+
+  def self.round_down number
+    number - (number % 10)
   end
 end
