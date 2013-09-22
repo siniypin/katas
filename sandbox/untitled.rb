@@ -8,7 +8,7 @@ module Humanize
     return @@grammar[number] unless @@grammar[number].nil?
 
     if (factor_of? 100, number)
-      spell_hundred number
+      nil#spell_hundred number
     elsif (factor_of? 10, number)
       spell_dozen number
     elsif (number > 20)
@@ -27,8 +27,7 @@ module Humanize
   end
 
   def self.spell_hundred number
-    hundreds = number / 100 > 1 ? "hundreds" : "hundred"
-    spell(number / 100) + " " + hundreds
+    spell(number / 100) + " " + "hundred"
   end
 
   def self.round_down number

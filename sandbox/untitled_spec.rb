@@ -91,9 +91,17 @@ describe "untitled" do
       Humanize::spell(100).should == "one hundred"
     end
 
-    it "should pluralize hundreds for numbers higher then 100" do
+    it "should not pluralize hundreds for numbers higher then 100" do
       (200..900).step(100) do |n|
-        Humanize::spell(n).should == Humanize::spell(n / 100) + " hundreds"
+        Humanize::spell(n).should == Humanize::spell(n / 100) + " hundred"
+      end
+    end
+  end
+
+  context "when unrounded numbers under thousand" do
+    it "should spell hundreds followed by spelled dozens followed by spelled digits" do
+      (111..999).step(111) do |n|
+        Humanize::spell(n).should == Humanize::spell(n/100*100) + " and " + Humanize::spell(n%100)
       end
     end
   end
