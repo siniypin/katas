@@ -62,8 +62,10 @@ describe "untitled" do
       end
     end
 
-    it "should spell thirty for 30" do
-      Humanize::spell(30).should == "thirty"
+    it "should add ty to number" do
+      (60..90).step(10) do |n|
+        Humanize::spell(n).should == Humanize::spell(n/10) + "ty"
+      end
     end
   end
 end
