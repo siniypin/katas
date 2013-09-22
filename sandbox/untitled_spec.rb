@@ -36,6 +36,14 @@ describe "untitled" do
     it "spells fifteen for 15" do
       Humanize::spell(15).should == "fifteen"
     end
+  end
+
+  context "from 16 through to 19" do
+    it "should add teen to number" do
+      16..19.each do |n|
+        Humanize::spell(n).should == Humanize::spell(n - 10) + "teen"
+      end
+    end
   end  
 
 end
