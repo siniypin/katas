@@ -10,6 +10,10 @@ describe "untitled" do
     it "spells one for 1" do
       answer(1).should == "one"
     end
+
+    it "spells nine for 9" do
+      answer(9).should == "nine"
+    end
   end  
 
 end
