@@ -22,7 +22,7 @@ module Humanize
 
   def self.spell_dozen number
     result = spell(number / 10) + "ty"
-    result += spell(number % 10) unless factor_of? 10, number
+    result += " " + spell(number % 10) unless factor_of? 10, number
     result
   end
 
