@@ -5,10 +5,10 @@ module Humanize
                20 => "twenty", 30 => "thirty", "40" => "forty", 50 => "fifty"}
 
   def self.spell number
+    return @@grammar[number] unless @@grammar[number].nil?
+
     if (number > 15)
       spell(number - 10) + "teen"
-    else
-      @@grammar[number]
     end
   end
 
