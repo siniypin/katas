@@ -1,33 +1,4 @@
-FFF
+...
 
-Failures:
-
-  1) untitled when numbers are under 10 spells zero for 0
-     Failure/Error: Humanize::spell(0).should == "zero"
-     NameError:
-       undefined local variable or method `grammar' for Humanize:Module
-     # ./untitled.rb:6:in `spell'
-     # ./untitled_spec.rb:7:in `block (3 levels) in <top (required)>'
-
-  2) untitled when numbers are under 10 spells one for 1
-     Failure/Error: Humanize::spell(1).should == "one"
-     NameError:
-       undefined local variable or method `grammar' for Humanize:Module
-     # ./untitled.rb:6:in `spell'
-     # ./untitled_spec.rb:11:in `block (3 levels) in <top (required)>'
-
-  3) untitled when numbers are under 10 spells nine for 9
-     Failure/Error: Humanize::spell(9).should == "nine"
-     NameError:
-       undefined local variable or method `grammar' for Humanize:Module
-     # ./untitled.rb:6:in `spell'
-     # ./untitled_spec.rb:15:in `block (3 levels) in <top (required)>'
-
-Finished in 0.00068 seconds
-3 examples, 3 failures
-
-Failed examples:
-
-rspec ./untitled_spec.rb:6 # untitled when numbers are under 10 spells zero for 0
-rspec ./untitled_spec.rb:10 # untitled when numbers are under 10 spells one for 1
-rspec ./untitled_spec.rb:14 # untitled when numbers are under 10 spells nine for 9
+Finished in 0.02662 seconds
+3 examples, 0 failures

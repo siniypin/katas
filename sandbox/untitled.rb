@@ -3,7 +3,7 @@ module Humanize
                5 => "five", 6 => "six", 7 => "seven", 8 => "eight", 9 => "nine"}
 
   def self.spell number
-    grammar[number]
+    @@grammar[number]
   end
 
 end
