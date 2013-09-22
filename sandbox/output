@@ -1,4 +1,16 @@
-.................
+.................F
 
-Finished in 0.00283 seconds
-17 examples, 0 failures
+Failures:
+
+  1) untitled when rounded thousands should spell one thousand for 1000
+     Failure/Error: Humanize::spell(1000).should == "one thousand"
+       expected: "one thousand"
+            got: "ten hundred" (using ==)
+     # ./untitled_spec.rb:111:in `block (3 levels) in <top (required)>'
+
+Finished in 0.00319 seconds
+18 examples, 1 failure
+
+Failed examples:
+
+rspec ./untitled_spec.rb:110 # untitled when rounded thousands should spell one thousand for 1000

@@ -105,4 +105,10 @@ describe "untitled" do
       end
     end
   end
+
+  context "when rounded thousands" do
+    it "should spell one thousand for 1000" do
+      Humanize::spell(1000).should == "one thousand"
+    end
+  end
 end
