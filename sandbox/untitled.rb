@@ -8,7 +8,7 @@ module Humanize
     return @@grammar[number] unless @@grammar[number].nil?
 
     if (factor_of? 100, number)
-      nil#spell_hundred number
+      spell_hundred number
     elsif (factor_of? 10, number)
       spell_dozen number
     elsif (number > 20)

@@ -1,34 +1,18 @@
-..............FFF
+................F
 
 Failures:
 
-  1) untitled when rounded hundreds should spell one hundred for 100
-     Failure/Error: Humanize::spell(100).should == "one hundred"
-       expected: "one hundred"
-            got: nil (using ==)
-     # ./untitled_spec.rb:91:in `block (3 levels) in <top (required)>'
-
-  2) untitled when rounded hundreds should not pluralize hundreds for numbers higher then 100
-     Failure/Error: Humanize::spell(n).should == Humanize::spell(n / 100) + " hundred"
-       expected: "two hundred"
-            got: nil (using ==)
-     # ./untitled_spec.rb:96:in `block (4 levels) in <top (required)>'
-     # ./untitled_spec.rb:95:in `step'
-     # ./untitled_spec.rb:95:in `block (3 levels) in <top (required)>'
-
-  3) untitled when unrounded numbers under thousand should spell hundreds followed by spelled dozens followed by spelled digits
+  1) untitled when unrounded numbers under thousand should spell hundreds followed by spelled dozens followed by spelled digits
      Failure/Error: Humanize::spell(n).should == Humanize::spell(n/100*100) + " and " + Humanize::spell(n%100)
-     NoMethodError:
-       undefined method `+' for nil:NilClass
+       expected: "one hundred and eleven"
+            got: "eleventy one" (using ==)
      # ./untitled_spec.rb:104:in `block (4 levels) in <top (required)>'
      # ./untitled_spec.rb:103:in `step'
      # ./untitled_spec.rb:103:in `block (3 levels) in <top (required)>'
 
-Finished in 0.00286 seconds
-17 examples, 3 failures
+Finished in 0.02506 seconds
+17 examples, 1 failure
 
 Failed examples:
 
-rspec ./untitled_spec.rb:90 # untitled when rounded hundreds should spell one hundred for 100
-rspec ./untitled_spec.rb:94 # untitled when rounded hundreds should not pluralize hundreds for numbers higher then 100
 rspec ./untitled_spec.rb:102 # untitled when unrounded numbers under thousand should spell hundreds followed by spelled dozens followed by spelled digits
