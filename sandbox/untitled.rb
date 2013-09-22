@@ -9,7 +9,7 @@ module Humanize
 
     if (number >= 1000)
       spell_thousand number
-    if (number >= 100)
+    elsif (number >= 100)
       spell_hundred number
     elsif (number > 20)
       spell_dozen number
