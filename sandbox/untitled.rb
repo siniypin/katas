@@ -43,7 +43,7 @@ module Humanize
   end
 
   def self.spell_million number
-    result = spell(number / 1000) + " million"
+    result = spell(number / 1000000) + " million"
     result += ", " + spell(number % 1000000) unless factor_of? 1000000, number
     result
   end
