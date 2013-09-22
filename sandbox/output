@@ -1,18 +1,9 @@
-..........F
-
-Failures:
-
-  1) untitled round numbers less then 100 should add ty to number
-     Failure/Error: Humanize::spell(n).should == Humanize::spell(n/10) + "ty"
-       expected: "sixty"
-            got: "fiftyteen" (using ==)
-     # ./untitled_spec.rb:67:in `block (4 levels) in <top (required)>'
-     # ./untitled_spec.rb:66:in `step'
-     # ./untitled_spec.rb:66:in `block (3 levels) in <top (required)>'
-
-Finished in 0.00188 seconds
-11 examples, 1 failure
-
-Failed examples:
-
-rspec ./untitled_spec.rb:65 # untitled round numbers less then 100 should add ty to number
+/var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/untitled_spec.rb:1:in `require': /var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/untitled.rb:18: syntax error, unexpected $end, expecting keyword_end (SyntaxError)
+	from /var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/untitled_spec.rb:1:in `<top (required)>'
+	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `load'
+	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `block in load_spec_files'
+	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `each'
+	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `load_spec_files'
+	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/command_line.rb:22:in `run'
+	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/runner.rb:80:in `run'
+	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/runner.rb:17:in `block in autorun'

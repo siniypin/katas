@@ -7,6 +7,9 @@ module Humanize
   def self.spell number
     return @@grammar[number] unless @@grammar[number].nil?
 
+    if (number > 50)
+      spell(number / 10) + "ty"
+
     if (number > 15)
       spell(number - 10) + "teen"
     end
