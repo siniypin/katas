@@ -1,0 +1,60 @@
+Tests to verify behavior:
+1. Correctly spelling out digits
+2. Correctly spelling out numbers 11-19
+3. Correctly spelling out numbers 20-99
+4. Correctly spelling out numbers 100-999
+5. Same for thousands
+6. Same for millions
+
+to avoid repetition in algorythm for every other digit lets create a grammar map, containing unique terms for numbers
+
+teens are unique terms on their own
+it appears that numbers 16-19 are not unique terms, but rather a concatenation of digit and "teen", thus
+2 breaks down into:
+	spell numbers 11-15 correctly
+	numbers 16-19 are concatenation of respected digit spelled and "teen"
+
+it appears that dozens are unique terms on their own as well, thus 
+3 breaks down into:
+	spell rounded numbers 20,30,..90 correctly
+	spell unrounded numbers greater 20 and less then 100 correctly
+it appears again that 60,70..90 are not unique terms, but rather a concatenation of digit and "ty", thus
+spell rounded numbers 20,30,..90 correctly breaks down into: 
+	spell rounded numbers 20,30,40,50 correctly
+	rounded numbers 60,70,..90 are concatenation of respected digit spelled and "ty"
+ugh, it doesn't work for eighty
+let's add another test to verify eighty as unique term
+finally, 3 is broken down into
+	spell rounded numbers 20,30,40,50,80 correctly
+	rounded numbers 60,70,90 are concatenation of respected digit spelled and "ty"
+	spell unrounded numbers greater 20 and less then 100 as dozen and digit spelled out one after another
+
+I feel a smell - repetitions in tests. postpone it for later
+
+hundreds doesn't have uniqueness in terms 
+the algorythm is unclear have to refactor it	
+
+thousands a pretty much the same as handreds and millions as well
+there are repetitions in algorythm with slight variations.
+will not generalize the algorythm as it is still constrained with knowledge about number orders and it obviously has to be configured anywhere, why not in code.
+as for repeating pattern in spell_smth this one can be refactored with ruby neat features.
+
+now refactor repetitions in test
+
+I forgot about ten!
+have to add a test for it.
+
+resulting list of tests:
+1. Correctly spelling out digits
+	tests for correctness per each digit
+2. Correctly spelling out numbers 11-19
+	tests for correctness of 10-15 numbers spelled
+	test that 16-19 is spelled as concatenation of digit spelled and "teen"
+3. Correctly spelling out numbers 20-99
+	tests for correctness of 20,30,40,50,80 numbers spelled
+	test that rounded numbers 60,70,90 are concatenation of respected digit spelled and "ty"
+	test that unrounded numbers greater 20 and less then 100 are spelled as dozen and digit spelled out one after another
+4. Correctly spelling out numbers 100-999
+	test that 100,200,...,900 are spelled as digit spelled followed by "hundred"
+	test that unrounded numbers greater 99 and less then 1000 are spelled as digit spelled follwed by "hundred" followed by dozen and digit spelled out one after another
+5. thousands and millions are the same, but longer
