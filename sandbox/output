@@ -1,9 +1,23 @@
-/var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/untitled_spec.rb:1:in `require': /var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/untitled.rb:18: syntax error, unexpected $end, expecting keyword_end (SyntaxError)
-	from /var/www/cyberdojo/katas/20/191C6171/zebra/sandbox/untitled_spec.rb:1:in `<top (required)>'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `load'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `block in load_spec_files'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `each'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/configuration.rb:819:in `load_spec_files'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/command_line.rb:22:in `run'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/runner.rb:80:in `run'
-	from /usr/local/lib/ruby/gems/1.9.1/gems/rspec-core-2.13.1/lib/rspec/core/runner.rb:17:in `block in autorun'
+..........F.F
+
+Failures:
+
+  1) untitled when round numbers under 100 should add ty to number
+     Failure/Error: Unable to find matching line from backtrace
+     SystemStackError:
+       stack level too deep
+     # ./untitled.rb:8
+
+  2) untitled when unrounded numbers under 100 should spell dozens followed by spelled digits
+     Failure/Error: Unable to find matching line from backtrace
+     SystemStackError:
+       stack level too deep
+     # ./untitled.rb:8
+
+Finished in 0.00682 seconds
+13 examples, 2 failures
+
+Failed examples:
+
+rspec ./untitled_spec.rb:65 # untitled when round numbers under 100 should add ty to number
+rspec ./untitled_spec.rb:78 # untitled when unrounded numbers under 100 should spell dozens followed by spelled digits
