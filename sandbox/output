@@ -1,4 +1,4 @@
-.................*F
+.............F...*F
 
 Pending:
   untitled when rounded thousands working out a clear alg
@@ -7,15 +7,24 @@ Pending:
 
 Failures:
 
-  1) untitled when rounded thousands should spell one thousand for 1000
+  1) untitled when unrounded numbers under 100 should spell dozens followed by spelled digits
+     Failure/Error: Humanize::spell(n).should == Humanize::spell(n/10*10) + " " + Humanize::spell(n%10)
+       expected: "twenty one"
+            got: "twotyone" (using ==)
+     # ./untitled_spec.rb:84:in `block (4 levels) in <top (required)>'
+     # ./untitled_spec.rb:83:in `step'
+     # ./untitled_spec.rb:83:in `block (3 levels) in <top (required)>'
+
+  2) untitled when rounded thousands should spell one thousand for 1000
      Failure/Error: Humanize::spell(1000).should == "one thousand"
        expected: "one thousand"
             got: "ten hundred" (using ==)
      # ./untitled_spec.rb:113:in `block (3 levels) in <top (required)>'
 
-Finished in 0.00316 seconds
-19 examples, 1 failure, 1 pending
+Finished in 0.00313 seconds
+19 examples, 2 failures, 1 pending
 
 Failed examples:
 
+rspec ./untitled_spec.rb:82 # untitled when unrounded numbers under 100 should spell dozens followed by spelled digits
 rspec ./untitled_spec.rb:112 # untitled when rounded thousands should spell one thousand for 1000
