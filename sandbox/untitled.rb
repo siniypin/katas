@@ -1,4 +1,4 @@
 
 def answer number
-  number ? "zero" : "one"
+  number == 0 ? "zero" : "one"
 end
