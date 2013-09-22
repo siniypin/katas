@@ -21,7 +21,7 @@ module Humanize
   end
 
   def self.spell_dozen number
-    result = @@grammar[number] || spell(number / 10) + "ty"
+    result = @@grammar[round_down_to(10, number)] || (spell(number / 10) + "ty")
     result += " " + spell(number % 10) unless factor_of? 10, number
     result
   end
@@ -34,5 +34,9 @@ module Humanize
 
   def self.factor_of? factor, number
     number % factor == 0
+  end
+
+  def self.round_down_to factor, number
+    number - (number % factor)
   end
 end
