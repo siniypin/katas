@@ -1,4 +1,17 @@
-.........................
+.........................F
 
-Finished in 0.00493 seconds
-25 examples, 0 failures
+Failures:
+
+  1) untitled when numbers above million behaves like number humanizer should spell forty three million, one hundred and twelve thousand, six hundred and three for 43112603
+     Failure/Error: Humanize::spell(number).should == words
+       expected: "forty three million, one hundred and twelve thousand, six hundred and three"
+            got: "forty three thousand, one hundred and twelve thousand, six hundred and three" (using ==)
+     Shared Example Group: "number humanizer" called from ./untitled_spec.rb:78
+     # ./untitled_spec.rb:6:in `block (3 levels) in <top (required)>'
+
+Finished in 0.02313 seconds
+26 examples, 1 failure
+
+Failed examples:
+
+rspec ./untitled_spec.rb:5 # untitled when numbers above million behaves like number humanizer should spell forty three million, one hundred and twelve thousand, six hundred and three for 43112603

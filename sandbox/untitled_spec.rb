@@ -73,4 +73,8 @@ describe "untitled" do
     it_behaves_like "number humanizer", 12609, "twelve thousand, six hundred and nine"
     it_behaves_like "number humanizer", 512607, "five hundred and twelve thousand, six hundred and seven"
   end
+
+  context "when numbers above million" do
+    it_behaves_like "number humanizer", 43112603, "forty three million, one hundred and twelve thousand, six hundred and three"
+  end
 end

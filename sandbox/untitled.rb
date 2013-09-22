@@ -37,7 +37,7 @@ module Humanize
   def self.spell_thousand number
     result = spell(number / 1000) + " thousand"
     result += ", " + spell(number % 1000) unless factor_of? 1000, number
-    result 
+    result
   end
 
   def self.factor_of? factor, number
