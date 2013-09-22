@@ -1,0 +1,58 @@
+http://www.cyber-dojo.com/dashboard/show/3A290C0314
+
+There are four types of common coins in US currency:
+  quarters (25 cents)
+  dimes (10 cents)
+  nickels (5 cents) 
+  pennies (1 cent)
+  
+There are 6 ways to make change for 15 cents:
+  A dime and a nickel;
+  A dime and 5 pennies;
+  3 nickels;
+  2 nickels and 5 pennies;
+  A nickel and 10 pennies;
+  15 pennies.
+  
+How many ways are there to make change for a dollar
+using these common coins? (1 dollar = 100 cents).
+
+
+design session: coin is an entity that has a nominal value
+change with the given nominal is not always possible unless there is a nominal value of one
+
+1. when change asked should calculate one result +
+	100 with pennies +
+	20 with nickels +
+	10 with dimes +
+	4 with quarters +
+smell - data coupling with test - generalize algorythm for coins counting
+
+design session: dollar is just a number of cents, change is asked for cents. in other words don't restrict algorythm to expect dollars only.
+
+2. when change asked for 5 cents with two nominal values, pennies and nickels, should return two options + 
+		5 0
+		0 1
+triangulate to generalize algorythm for two coins
+3. when change asked for 10 cents with two denominations, pennies and nickels, should return three options +
+		10 0
+		5 1
+		0 2
+
+smell: code is getting ugly - need to comment
+refactor +
+
+4. when change asked for 15 cents with three denominations, pennies, nickels and dimes, should return four options
+		15 0 0
+		10 1 0
+		5 2 0
+		5 0 1
+5. when change asked for 20 cents with three denominations, pennies, nickels and dimes, should return xxx options
+		20 0 0
+		15 1 0
+		10 2 0
+		10 0 1
+		5 1 1
+		5 3 0
+		0 4 0
+		0 0 2
