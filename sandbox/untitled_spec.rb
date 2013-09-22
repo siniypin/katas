@@ -38,7 +38,7 @@ describe "untitled" do
     end
   end
 
-  context "from 16 through to 19" do
+  context "when numbers from 16 through to 19" do
     it "should add teen to number" do
       (16..19).each do |n|
         Humanize::spell(n).should == Humanize::spell(n - 10) + "teen"
@@ -46,7 +46,7 @@ describe "untitled" do
     end
   end  
 
-  context "round numbers less then 100" do
+  context "when round numbers under 100" do
     it "should spell round numbers under 60 correctly" do
       (20..50).step(10) do |n|
         case n
@@ -71,6 +71,14 @@ describe "untitled" do
 
     it "should deal with eighty correctly" do
       Humanize::spell(80).should == "eighty"
+    end
+  end
+
+  context "when unrounded numbers under 100" do
+    it "should spell dozens followed by spelled digits" do
+      (21..99).step(11) do |n|
+        Humanize::spell(n).should == Humanize::spell(n/10*10) + " " + Humanize::spell(n%10)
+      end
     end
   end
 end
