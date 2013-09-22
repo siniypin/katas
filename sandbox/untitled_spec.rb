@@ -14,6 +14,12 @@ describe "untitled" do
     it "spells nine for 9" do
       Humanize::spell(9).should == "nine"
     end
+  end
+
+  context "when numbers are under twenty" do
+    it "spells eleven for 11" do
+      Humanize::spell(11).should == "eleven"
+    end
   end  
 
 end
