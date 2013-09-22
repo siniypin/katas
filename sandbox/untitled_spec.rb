@@ -114,5 +114,9 @@ describe "untitled" do
     it "should spell one thousand, five hundred and one for 1501" do
       Humanize::spell(1501).should == "one thousand, five hundred and one"
     end
+
+    it "should spell twelve thousand, six hundred and nine for 12609" do
+      Humanize::spell(12609).should == "twelve thousand, six hundred and nine"
+    end
   end
 end
